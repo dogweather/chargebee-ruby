@@ -1,4 +1,4 @@
-require 'uri'
+require 'cgi'
 
 module ChargeBee
   class Model
@@ -56,7 +56,7 @@ module ChargeBee
           if(path.nil? || path.strip.length < 1) 
              raise "Id is empty or nil" 
           end
-          url = "#{url}/#{URI.encode(path.strip)}"
+          url = "#{url}/#{CGI.escape(path.strip)}"
       end
       return url
     end
